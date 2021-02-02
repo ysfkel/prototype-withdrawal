@@ -1,6 +1,6 @@
 # Withdrawal App
 
-The project contains two directors
+The project contains two directories
 
  - client 
  - server

@@ -9,7 +9,7 @@ The project contains two directories
  - server
  - client 
 
-# To run the application with docker-compose follow these steps
+# To Run the Application with docker-compose follow these steps:
   
    1. Install docker-compose 
       * [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) - Install docker for mac 

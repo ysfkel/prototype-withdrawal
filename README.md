@@ -2,8 +2,12 @@
 
 The project contains two directories
 
- - client 
  - server
+  - client 
+
+## Server dependencies
+   * [Node](https://nodejs.org/en/) - Node
+   * [Typescript](npm install typescript -g) - Typescript
 
 ## Client dependencies
    * [Node](https://nodejs.org/en/) - Node

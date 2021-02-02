@@ -1,9 +1,13 @@
 # Withdrawal App
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine.
+
 The project contains two directories
 
  - server
-  - client 
+ - client 
 
 # To run the application with docker-compose follow these steps
   
@@ -37,12 +41,7 @@ The project contains two directories
 ## Client dependencies
    * [Node](https://nodejs.org/en/) - Node
    * [Create React App](https://www.npmjs.com/package/create-react-app) - npm i create-react-app -g 
-   
-## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine.
-
-### Prerequisites
  
 ### Installing 
 

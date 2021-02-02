@@ -12,5 +12,6 @@ app.use(bodyparser.json());
 app.use(cors());
 new routes_1.WithdrawalRoutes(app);
 server.listen(port, () => {
+    console.log(`server listening on port ${port}`);
 });
 //# sourceMappingURL=app.js.map

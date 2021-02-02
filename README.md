@@ -5,6 +5,31 @@ The project contains two directories
  - server
   - client 
 
+# To run the application with docker-compose follow these steps
+  
+   1. Install docker-compose 
+      * [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) - Install docker for mac 
+      * [Docker for windows](https://docs.docker.com/docker-for-windows/install/) - Install docker for windows
+      * [Docker compose](https://docs.docker.com/compose/install/) - Install docker compose
+   2. Clone the project 
+      
+      ```
+       git clone https://github.com/ysfkel/prototype-withdrawal
+      ```
+   3. Change directory to the root of the cloned repository (where you have docker-compose.yaml) and run:
+
+      ```
+      docker-compose up
+      ```
+   4. Wait for the application to build
+
+      When the application build is done, open a web browser and navigate to:
+
+      ```
+      http://localhost:8080/withdrawal
+      ```
+
+# To Run the Application by building the projects (client and server) individually follow these steps
 ## Server dependencies
    * [Node](https://nodejs.org/en/) - Node
    * [Typescript](https://www.npmjs.com/package/typescript) - Typescript

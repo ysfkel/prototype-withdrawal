@@ -48,6 +48,7 @@ npm start
 ### Run the client 
 
 Change directory to > client  and  run 
+
 ```
 npm install 
 ```

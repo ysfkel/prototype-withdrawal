@@ -1,5 +1,5 @@
-import express from 'express';
-import { IWithdrawalService } from '../services/withdrawal-service';
+import * as express from 'express';
+import { IWithdrawalService } from '../services/withdrawal/withdrawal';
 
 export default class WithdrawalController {
 

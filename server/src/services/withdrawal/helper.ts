@@ -1,13 +1,9 @@
 
-import {quickSort } from '../utils/utils'
-import { Withdrawal } from './dto'
-import { Denomination } from "../models/denomination";
-import { NOTE, LARGE, SMALL } from "../repository/data";
+import {quickSort } from '../../utils/utils'
+import { Withdrawal, DenominationAmount } from './dto'
+import { Denomination } from "../../models/denomination";
+import { NOTE, LARGE, SMALL } from "../../repository/data";
 
-interface DenominationAmount {
-    amount: number
-    next: number
-}
 
 const  getCurrencyDenomination = (arr: Array<number>=[], n: number) => {
 
@@ -41,7 +37,7 @@ const getDenominationAmount = (currencyDenomination: number, withdrawalAmount: n
   }
 }
 
-export const processWithdrawal = (withdrawalAmount: number, denominations: Array<Denomination>): Withdrawal => {
+export const processWithdrawal = (withdrawalAmount: number, denominations: Array<Denomination>, accountBalance: number): Withdrawal => {
 
   let ca: DenominationAmount = {
       amount: 0,
@@ -51,9 +47,21 @@ export const processWithdrawal = (withdrawalAmount: number, denominations: Array
   let total = 0
 
  const withdrawal: Withdrawal =  {
-     notes:[],
-     largeCoins:[],
-     smallCoins:[]
+     notes:{
+        items: [],
+        total:0
+     },
+     largeCoins:{
+        items: [],
+        total:0
+     },
+     smallCoins:{
+        items: [],
+        total:0
+     },
+     grandTotal:0,
+     accountBalance: accountBalance,
+     insufficientBalance: false
  }
 
  const notes =  getValues(denominations.filter(x=>x.Type===NOTE))
@@ -70,23 +78,35 @@ export const processWithdrawal = (withdrawalAmount: number, denominations: Array
           ca = getDenominationAmount(currencyDenomination,ca.next )
 
           if(notes.includes(currencyDenomination)) {
-              withdrawal.notes.push({
+              //update total 
+              withdrawal.notes.total += (currencyDenomination*ca.amount)
+              //push item
+              withdrawal.notes.items.push({
                   denomination: currencyDenomination,
                   amount: ca.amount
               })
           } else if(largeCoins.includes(currencyDenomination)) {
-              withdrawal.largeCoins.push({
+            //update total 
+            withdrawal.largeCoins.total += (currencyDenomination*ca.amount)
+            //push item
+              withdrawal.largeCoins.items.push({
                   denomination: currencyDenomination,
                   amount: ca.amount
               })
           } else {
-              withdrawal.smallCoins.push({
+            //update total
+            withdrawal.smallCoins.total += (currencyDenomination*ca.amount)
+            //push item
+             withdrawal.smallCoins.items.push({
                   denomination: currencyDenomination,
                   amount: ca.amount
               })
           }
       total += currencyDenomination * ca.amount  
   }
+
+  //calculate grand total
+  withdrawal.grandTotal += withdrawal.notes.total + withdrawal.largeCoins.total + withdrawal.smallCoins.total 
 
   return withdrawal 
 }
@@ -96,3 +116,26 @@ const getValues = (denominations: Array<Denomination>) => {
     return denominations.map(d => d.Value)
 
 }
+
+
+
+export const getInsufficientBalanceData = (accountBalance: number): Withdrawal=> { 
+
+    const data = {
+        items: [],
+        total: 0
+    }
+
+    const insufficientBalance: Withdrawal  = {
+        notes: data,
+        largeCoins:  data,
+        smallCoins: data,
+        grandTotal: 0,
+        accountBalance: accountBalance,
+        insufficientBalance: true
+    }
+
+    return insufficientBalance
+
+}
+ 

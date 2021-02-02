@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  # backend:
+  #   container_name: server
+  #   build: ./server
+  #   restart: always
+  #   ports:
+  #     - "3000:3000"
+  frontend:
+      container_name: client
+      build: ./client
+      restart: always
+      ports:
+        - "8080:80"

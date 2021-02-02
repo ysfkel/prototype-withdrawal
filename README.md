@@ -35,11 +35,14 @@ git clone https://github.com/ysfkel/prototype-withdrawal
 
 ### Run the server 
 
-Change directory to > server  
-   then run 
-    ```
-     npm start 
-    ```
+Change directory to > server  and  run 
+
+```
+  npm install 
+ ```
+ ```
+  npm start 
+ ```
 
 ### Run the client 
 

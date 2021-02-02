@@ -13,10 +13,6 @@ The project contains two directories
    * [Node](https://nodejs.org/en/) - Node
    * [Create React App](https://www.npmjs.com/package/create-react-app) - npm i create-react-app -g 
    
-
-The applications displays a list of orders and also provides a search functionality.
-
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.

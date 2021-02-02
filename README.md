@@ -7,7 +7,7 @@ The project contains two directories
 
 ## Server dependencies
    * [Node](https://nodejs.org/en/) - Node
-   * [Typescript](npm install typescript -g) - Typescript
+   * [Typescript](https://www.npmjs.com/package/typescript) - Typescript
 
 ## Client dependencies
    * [Node](https://nodejs.org/en/) - Node

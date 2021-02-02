@@ -65,7 +65,7 @@ http://localhost:3000/withdrawal
  
 ## Backend Server folder structure (NODEJS)
 
-Directory name: order-app
+Directory name: server
 
 The backend project follows the domain driven design project structure according 
 to the following directories

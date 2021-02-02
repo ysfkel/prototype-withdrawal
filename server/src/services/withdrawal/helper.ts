@@ -5,7 +5,12 @@ import { Denomination } from "../../models/denomination";
 import { NOTE, LARGE, SMALL } from "../../repository/data";
 
 
-const  getCurrencyDenomination = (arr: Array<number>=[], n: number) => {
+/**
+ * Users binary search to find the correct currency denomination
+ * @param arr currency deominsations list
+ * @param n withdrwal amount
+ */
+const getCurrencyDenomination = (arr: Array<number>=[], n: number) => {
 
 
     let mid = Math.floor((arr.length/2))
@@ -27,16 +32,28 @@ const  getCurrencyDenomination = (arr: Array<number>=[], n: number) => {
   
 }
 
+/**
+ * calculates the amount of the currency denomination to add to the withdrwal
+ * returns the amount and the remaining amount to withdraw
+ * @param currencyDenomination 
+ * @param withdrawalAmount 
+ */
 const getDenominationAmount = (currencyDenomination: number, withdrawalAmount: number): DenominationAmount => {
   let remainder = withdrawalAmount % currencyDenomination 
   let amount = (withdrawalAmount-remainder) / currencyDenomination
 
   return {
       amount:amount,
-      next: remainder
+      next: remainder // next withdrwal amount to calculate
   }
 }
 
+/**
+ * 
+ * @param withdrawalAmount //amount that customer wants to withdraw
+ * @param denominations // list of available denominatons
+ * @param accountBalance  //customers account balance
+ */
 export const processWithdrawal = (withdrawalAmount: number, denominations: Array<Denomination>, accountBalance: number): Withdrawal => {
 
   let ca: DenominationAmount = {
@@ -46,6 +63,7 @@ export const processWithdrawal = (withdrawalAmount: number, denominations: Array
 
   let total = 0
 
+  //initialize withdrawal object
  const withdrawal: Withdrawal =  {
      notes:{
         items: [],
@@ -64,12 +82,13 @@ export const processWithdrawal = (withdrawalAmount: number, denominations: Array
      insufficientBalance: false
  }
 
+ //get the integer values for each denomition in the list
  const notes =  getValues(denominations.filter(x=>x.Type===NOTE))
-
+ //get the integer values for each denomition in the list
  const largeCoins =  getValues(denominations.filter(x=>x.Type===LARGE))
-
+ //get the integer values for each denomition in the list
  const smallCoins =  getValues(denominations.filter(x=>x.Type===SMALL))
- 
+ //sorts the denomination values
  let money = quickSort([...smallCoins,...largeCoins, ...notes])
 
   while(total < withdrawalAmount) {

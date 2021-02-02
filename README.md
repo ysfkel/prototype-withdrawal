@@ -25,8 +25,6 @@ These instructions will get you a copy of the project up and running on your loc
  
 ### Installing 
 
-Ensure that you have Docker and docker compose installed on your system
-
 Clone The project 
 
 ```

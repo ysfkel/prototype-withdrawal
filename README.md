@@ -47,11 +47,14 @@ npm start
 
 ### Run the client 
 
-Change directory to > client  
-   then run 
-    ```
-     npm start 
-    ```
+Change directory to > client  and  run 
+```
+npm install 
+```
+
+```
+npm start 
+```
 
 When the application build is done, open a web browser and navigate to:
 

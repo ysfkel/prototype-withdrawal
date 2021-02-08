@@ -117,7 +117,6 @@ const ComponentState = {
                 {this.state.withdrawal.insufficientBalance && 
                    
                     <h2>You do no have sufficient balance to make this transaction</h2>
-
                 }
           </div>
         </>

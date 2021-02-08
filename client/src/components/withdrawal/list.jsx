@@ -6,20 +6,17 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   table: {
     
   },
   container: {
-    //   width: 350,
       backgroundColor: 'grey'
   }
 });
  
 const WithdrawalItemsList = ({withdrawal, denomination}) => {
-    console.log('---notes ' , withdrawal)
   const classes = useStyles();
 
   return (

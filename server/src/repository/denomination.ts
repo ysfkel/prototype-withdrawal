@@ -10,9 +10,9 @@ export default class DenominationRepository implements IDenominationRepository {
 
      get = (): Promise<Array<Denomination>> => {
         
-         return new Promise<Array<Denomination>> ((resolve, reject) => {
-            resolve(getData())
-         })
+          return new Promise<Array<Denomination>> ((resolve, reject) => {
+               resolve(getData())
+            })
      }
  
 }

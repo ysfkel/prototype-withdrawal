@@ -4,7 +4,6 @@ import { IUserRepository } from '../../repository/user'
 import { getInsufficientBalanceData, getValues , getDenominationAmount, getCurrencyDenomination} from "./helper";
 import { Withdrawal, DenominationAmount } from "./dto";
 import { NOTE, LARGE, SMALL } from "../../repository/data";
-import {quickSort } from '../../utils/utils'
 import { Denomination } from "../../models/denomination";
 
 export interface IWithdrawalService {
@@ -85,7 +84,8 @@ const processWithdrawal = (withdrawalAmount: number, denominations: Array<Denomi
    //get the integer values for each denomition in the list
    const smallCoins =  getValues(denominations.filter(x=>x.Type===SMALL))
    //sorts the denomination values
-   let money = quickSort([...smallCoins,...largeCoins, ...notes])
+   let money = [...smallCoins,...largeCoins, ...notes]
+    money = money.sort()
   
     while(total < withdrawalAmount) {
   
